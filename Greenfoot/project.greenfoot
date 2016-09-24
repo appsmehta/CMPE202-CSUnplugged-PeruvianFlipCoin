@@ -1,0 +1,14 @@
+#Greenfoot properties
+#Fri Sep 23 23:18:55 PDT 2016
+mainWindow.width=850
+class.MyWorld.superclass=greenfoot.World
+class.Captain.image=man.png
+project.charset=UTF-8
+version=2.8.0
+class.Player.superclass=greenfoot.Actor
+world.lastInstantiated=MyWorld
+mainWindow.y=40
+class.Player.image=person.png
+mainWindow.x=40
+class.Captain.superclass=Player
+mainWindow.height=600
