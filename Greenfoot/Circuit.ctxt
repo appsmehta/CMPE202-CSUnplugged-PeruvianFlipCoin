@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Circuit
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Circuit\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Circuit\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.params=inputString
+comment2.target=java.lang.String\ endcodeBits(java.lang.String)
+numComments=3
