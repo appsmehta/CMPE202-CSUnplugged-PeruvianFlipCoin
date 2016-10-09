@@ -33,7 +33,7 @@ public class Circuit extends Actor
 		boolean firstnumber5 = !(boolinput[3] & boolinput[5]);
 		boolean firstnumber6 = !(boolinput[5]);
 		
-		System.out.println(firstnumber1+" "+firstnumber2+" "+firstnumber3+" "+firstnumber4+" "+firstnumber5+" "+firstnumber6);
+		//System.out.println(firstnumber1+" "+firstnumber2+" "+firstnumber3+" "+firstnumber4+" "+firstnumber5+" "+firstnumber6);
 		
 		//Second Round
 		boolean secondnumber1 = firstnumber1 | firstnumber2;
@@ -43,7 +43,7 @@ public class Circuit extends Actor
 		boolean secondnumber5 = !(firstnumber4 | firstnumber6);
 		boolean secondnumber6 = (firstnumber1);
 		
-		System.out.println(secondnumber1+" "+secondnumber2+" "+secondnumber3+" "+secondnumber4+" "+secondnumber5+" "+secondnumber6);
+		//System.out.println(secondnumber1+" "+secondnumber2+" "+secondnumber3+" "+secondnumber4+" "+secondnumber5+" "+secondnumber6);
 		
 		//Third Round
 		boolean thirdnumber1 = (secondnumber2);
@@ -53,7 +53,7 @@ public class Circuit extends Actor
 		boolean thirdnumber5 = (secondnumber4 ^ secondnumber5);
 		boolean thirdnumber6 = !secondnumber5 & secondnumber6;
 		
-		System.out.println(thirdnumber1+" "+thirdnumber2+" "+thirdnumber3+" "+thirdnumber4+" "+thirdnumber5+" "+thirdnumber6);
+		//System.out.println(thirdnumber1+" "+thirdnumber2+" "+thirdnumber3+" "+thirdnumber4+" "+thirdnumber5+" "+thirdnumber6);
 		
 		outnumber[0] = thirdnumber1;
 		outnumber[1] = thirdnumber2;
