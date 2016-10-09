@@ -27,6 +27,15 @@ public class TesterClass extends Actor
         // Add your action code here.
     }    
     
+    public void testAllCircuits()
+    {
+        circuitOneTester();
+        circuitTwoTester();
+        circuitThreeTester();
+        circuitFourTester();
+        circuitFiveTester();
+    }
+    
     public void circuitOneTester()
     {
         System.out.println("Testing the First Circuit:\n");
