@@ -106,11 +106,11 @@ public class CircuitClass
 		
 	}
 
-	public static void testerfunction(boolean[] boolinput)
+	public static void testerfunction(boolean[] boolinput, circuitNumber)
 	{
-		System.out.println("\nEnter circuit number : ");
-		int circuitNumber = sc.nextInt();
-		System.out.println("Circuit Number : "+circuitNumber);
+		//System.out.println("\nEnter circuit number : ");
+		//int circuitNumber = sc.nextInt();
+		//System.out.println("Circuit Number : "+circuitNumber);
 		
 		switch(circuitNumber)
 		{
