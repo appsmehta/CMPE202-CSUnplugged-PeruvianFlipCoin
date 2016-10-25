@@ -106,7 +106,7 @@ public class CircuitClass
 		
 	}
 
-	public static void testerfunction(boolean[] boolinput, circuitNumber)
+	public static void testerfunction(boolean[] boolinput, int circuitNumber)
 	{
 		//System.out.println("\nEnter circuit number : ");
 		//int circuitNumber = sc.nextInt();
