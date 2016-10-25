@@ -287,7 +287,7 @@ public class TesterClass extends Actor
 		
 		System.out.println("Testing for Input: "+input1[0]+""+input1[1]+""+input1[2]+""+input1[3]+""+input1[4]+""+input1[5]);
 		
-		booloutput1 = c.circuit3(boolinput1);
+		booloutput1 = c.testerfunction(boolinput1,3);
 		
 		for(int j=0;j<6;j++)
 		{
@@ -312,7 +312,7 @@ public class TesterClass extends Actor
 		
 		System.out.println("Testing for Input: "+input2[0]+""+input2[1]+""+input2[2]+""+input2[3]+""+input2[4]+""+input2[5]);
 		
-		booloutput2 = c.circuit3(boolinput2);
+		booloutput2 = c.testerfunction(boolinput2,3);
 		
 		for(int j=0;j<6;j++)
 		{
@@ -337,7 +337,7 @@ public class TesterClass extends Actor
 		
 		System.out.println("Testing for Input: "+input3[0]+""+input3[1]+""+input3[2]+""+input3[3]+""+input3[4]+""+input3[5]);
 		
-		booloutput3 = c.circuit3(boolinput3);
+		booloutput3 = c.testerfunction(boolinput3,3);
 		
 		for(int j=0;j<6;j++)
 		{
@@ -394,7 +394,7 @@ public class TesterClass extends Actor
 		
 		System.out.println("Testing for Input: "+input1[0]+""+input1[1]+""+input1[2]+""+input1[3]+""+input1[4]+""+input1[5]);
 		
-		booloutput1 = c.circuit4(boolinput1);
+		booloutput1 = c.testerfunction(boolinput1,4);
 		
 		for(int j=0;j<6;j++)
 		{
@@ -419,7 +419,7 @@ public class TesterClass extends Actor
 		
 		System.out.println("Testing for Input: "+input2[0]+""+input2[1]+""+input2[2]+""+input2[3]+""+input2[4]+""+input2[5]);
 		
-		booloutput2 = c.circuit4(boolinput2);
+		booloutput2 = c.testerfunction(boolinput2,4);
 		
 		for(int j=0;j<6;j++)
 		{
@@ -444,7 +444,7 @@ public class TesterClass extends Actor
 		
 		System.out.println("Testing for Input: "+input3[0]+""+input3[1]+""+input3[2]+""+input3[3]+""+input3[4]+""+input3[5]);
 		
-		booloutput3 = c.circuit4(boolinput3);
+		booloutput3 = c.testerfunction(boolinput3,4);
 		
 		for(int j=0;j<6;j++)
 		{
@@ -501,7 +501,7 @@ public class TesterClass extends Actor
 		
 		System.out.println("Testing for Input: "+input1[0]+""+input1[1]+""+input1[2]+""+input1[3]+""+input1[4]+""+input1[5]);
 		
-		booloutput1 = c.circuit5(boolinput1);
+		booloutput1 = c.testerfunction(boolinput1,5);
 		
 		for(int j=0;j<6;j++)
 		{
@@ -526,7 +526,7 @@ public class TesterClass extends Actor
 		
 		System.out.println("Testing for Input: "+input2[0]+""+input2[1]+""+input2[2]+""+input2[3]+""+input2[4]+""+input2[5]);
 		
-		booloutput2 = c.circuit5(boolinput2);
+		booloutput2 = c.testerfunction(boolinput2,5);
 		
 		for(int j=0;j<6;j++)
 		{
@@ -551,7 +551,7 @@ public class TesterClass extends Actor
 		
 		System.out.println("Testing for Input: "+input3[0]+""+input3[1]+""+input3[2]+""+input3[3]+""+input3[4]+""+input3[5]);
 		
-		booloutput3 = c.circuit5(boolinput3);
+		booloutput3 = c.testerfunction(boolinput3,5);
 		
 		for(int j=0;j<6;j++)
 		{
