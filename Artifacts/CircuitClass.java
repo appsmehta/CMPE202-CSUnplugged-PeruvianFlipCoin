@@ -7,14 +7,19 @@ public class CircuitClass
 {
 	static boolean[] outnumber = new boolean[6];
 	static boolean[] finaloutput = new boolean[6];
+	static int output1 = 0;
+	static int output2 = 0;
+	static int output3 = 0;
+	static int output4 = 0;
+	static int output5 = 0;
+	static int output6 = 0;
+	static Scanner sc = new Scanner(System.in);
 	
 	public static void main(String[] args) 
 	{
 		int[] input = new int[6];
 		boolean[] boolinput = new boolean[6];
 		
-		int output1 = 0, output2 = 0, output3 = 0, output4 = 0, output5 = 0, output6 = 0;
-		Scanner sc = new Scanner(System.in);
 		System.out.println("Put your six digit binary input here -");
 		
 		for(int i=0;i<6;i++)
@@ -35,8 +40,24 @@ public class CircuitClass
 		}
 		
 		
-		System.out.println("\n");
+		System.out.println("\n1] Select Circuit Randomly\n2] Tester function");
+		int choice = sc.nextInt();
 		
+		if(choice == 1)
+		{
+			randomselection(boolinput);
+		}
+		
+		if(choice == 2)
+		{
+			testerfunction(boolinput);
+		}
+		
+	}
+	
+	
+	public static void randomselection(boolean[] boolinput)
+	{
 		Random selectCircuit = new Random();
 		int circuitNumber = selectCircuit.nextInt(5)+1;
 		
@@ -68,8 +89,6 @@ public class CircuitClass
 		
 		
 		
-		
-		
 		if(finaloutput[0] == true)
 			output1 = 1;
 		if(finaloutput[1] == true)
@@ -87,6 +106,54 @@ public class CircuitClass
 		
 	}
 
+	public static void testerfunction(boolean[] boolinput)
+	{
+		System.out.println("\nEnter circuit number : ");
+		int circuitNumber = sc.nextInt();
+		System.out.println("Circuit Number : "+circuitNumber);
+		
+		switch(circuitNumber)
+		{
+			case 1:
+				finaloutput = circuit1(boolinput);
+				break;
+				
+			case 2:
+				finaloutput = circuit2(boolinput);
+				break;
+				
+			case 3:
+				finaloutput = circuit3(boolinput);
+				break;
+				
+			case 4:
+				finaloutput = circuit4(boolinput);
+				break;
+				
+			case 5:
+				finaloutput = circuit5(boolinput);
+				break;
+			
+		}
+		
+		
+		
+		if(finaloutput[0] == true)
+			output1 = 1;
+		if(finaloutput[1] == true)
+			output2 = 1;
+		if(finaloutput[2] == true)
+			output3 = 1;
+		if(finaloutput[3] == true)
+			output4 = 1;
+		if(finaloutput[4] == true)
+			output5 = 1;
+		if(finaloutput[5] == true)
+			output6 = 1;
+		
+		System.out.println("Output of the circuit : "+output1+" "+output2+" "+output3+" "+output4+" "+output5+" "+output6);
+	}
+	
 	public static boolean[] circuit5(boolean[] boolinput) 
 	{
 		//First Round
