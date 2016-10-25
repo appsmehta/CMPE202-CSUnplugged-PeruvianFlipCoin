@@ -1,18 +1,18 @@
 /**
- * Write a description of class ReadyToPlayState here.
+ * Write a description of class NoCallState here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class ReadyToPlayState extends GameState 
+public class NoInputState extends GameState 
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class ReadyToPlayState
+     * Constructor for objects of class NoCallState
      */
-    public ReadyToPlayState()
+    public NoInputState()
     {
     }
 
@@ -30,7 +30,6 @@ public class ReadyToPlayState extends GameState
     
     public String toString()
     {
-        return "Ready to Play!";
+        return "No Input State";
     }
-    
 }

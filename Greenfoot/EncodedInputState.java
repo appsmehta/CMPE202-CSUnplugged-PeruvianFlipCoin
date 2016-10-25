@@ -1,20 +1,20 @@
+import java.util.concurrent.ThreadLocalRandom;
 /**
- * Write a description of class HasCalledState here.
+ * Write a description of class EncodedInputState here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-import java.util.concurrent.ThreadLocalRandom;
 
-public class HasCalledState extends GameState 
+public class EncodedInputState extends GameState 
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class HasCalledState
+     * Constructor for objects of class EncodeInputState
      */
-    public HasCalledState()
+    public EncodedInputState()
     {
     }
 
@@ -32,9 +32,8 @@ public class HasCalledState extends GameState
     
     public String toString()
     {
-        return "Captain has called Rival Captain";
+        return "Captain has encoded a String";
     }
-    
     
     public boolean[] encodeString(boolean [] inputString)
     {

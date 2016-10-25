@@ -1,18 +1,20 @@
 /**
- * Write a description of class NoCallState here.
+ * Write a description of class VerifiedOutputState here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class NoCallState extends GameState 
+
+
+public class VerifiedOutputState extends GameState 
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class NoCallState
+     * Constructor for objects of class HasCalledState
      */
-    public NoCallState()
+    public VerifiedOutputState()
     {
     }
 
@@ -30,6 +32,9 @@ public class NoCallState extends GameState
     
     public String toString()
     {
-        return "No Call State";
+        return "VerifiedOutputState";
     }
+    
+    
+    
 }

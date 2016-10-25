@@ -1,18 +1,18 @@
 /**
- * Write a description of class EncodeInputState here.
+ * Write a description of class ReadyToPlayState here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class EncodeInputState extends GameState 
+public class KickOffState extends GameState 
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class EncodeInputState
+     * Constructor for objects of class ReadyToPlayState
      */
-    public EncodeInputState()
+    public KickOffState()
     {
     }
 
@@ -30,6 +30,7 @@ public class EncodeInputState extends GameState
     
     public String toString()
     {
-        return "Captain has encoded a String";
+        return "KickOffState";
     }
+    
 }
