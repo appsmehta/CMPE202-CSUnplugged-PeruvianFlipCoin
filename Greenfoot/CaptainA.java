@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class CaptainA extends Player
 {
+   
     /**
      * Act - do whatever the CaptainA wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -22,5 +23,7 @@ public class CaptainA extends Player
         {
             super(pNum);
            // setImage(images[pNum]);
-        }                   
+        }  
+        
+   
 }
