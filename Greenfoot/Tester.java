@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class TesterClass extends Actor
+public class Tester extends Actor
 {
     Circuit c = new Circuit();
     int[] input1 = {0,0,0,0,0,0};
