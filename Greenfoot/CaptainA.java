@@ -15,7 +15,7 @@ public class CaptainA extends Player
     public void act() 
     {
         // Add your action code here.
-        setLocation(255,200);
+        setLocation(255,205);
     }    
     
     public CaptainA(int pNum)
