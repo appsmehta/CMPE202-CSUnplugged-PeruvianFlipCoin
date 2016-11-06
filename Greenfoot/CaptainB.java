@@ -47,5 +47,14 @@ public class CaptainB extends Player
         return boolinput;
     }
     
+        public int getParity()
+    {
+        String input = Greenfoot.ask("Enter Parity:");
+        System.out.println("Parity: "+input);
+        if(input == "0")
+        return 0;
+        else
+        return 1;
+    }
     
 }

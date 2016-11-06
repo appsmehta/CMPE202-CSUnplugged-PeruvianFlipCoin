@@ -46,4 +46,5 @@ public class CaptainA extends Player
         
         return boolinput;
     }
+
 }
