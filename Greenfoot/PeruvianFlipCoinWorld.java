@@ -40,5 +40,7 @@ public class PeruvianFlipCoinWorld extends World
         addObject(capA, 137, 205);
         CaptainB capB = new CaptainB(4);
         addObject(capB, 461, 205);
+        Driver driver = new Driver();
+        addObject(driver,594,8);
     }
 }

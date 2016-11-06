@@ -16,7 +16,7 @@ public class CaptainA extends Player
     {
         // Add your action code here.
         setLocation(255,205);
-         boolean[] boolinput = encodeInput();
+         //boolean[] boolinput = encodeInput();
     }    
     
     public CaptainA(int pNum)
@@ -27,13 +27,10 @@ public class CaptainA extends Player
         
         public boolean[] encodeInput(){
         String input="";
-        boolean[] boolinput = new boolean[6];
-        do{
+        boolean[] boolinput = new boolean[6];       
                 
-             input = Greenfoot.ask("Enter 6 binary bits to be encoded:");
-            
-        }
-        while(input.length()!=6);
+        input = Greenfoot.ask("Enter 6 binary bits to be encoded:");       
+       
         
         System.out.println(input);
         char [] inputbits = input.toCharArray();
