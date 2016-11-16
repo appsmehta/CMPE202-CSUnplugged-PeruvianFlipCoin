@@ -93,11 +93,11 @@ public class Driver extends Actor
         }
         
         
-        if(state.getClass().getName() == "pfc.NoInputStateState" && playerNumber==1){
+        if(state.equals("pfc.NoInputState") && playerNumber==1){
             getInputString();
         }
         
-        if(state.getClass().getName() == "pfc.EncodedInputState" && playerNumber==2){
+        if(state.equals("pfc.EncodedInputState") && playerNumber==2){
             getParity();
         }
         
