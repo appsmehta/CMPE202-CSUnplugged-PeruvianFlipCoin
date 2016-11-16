@@ -209,7 +209,7 @@ public class Driver extends Actor
             {
                 JSONObject keyJson = new JSONObject(keyResult.getText());
                 String verifiedKey = keyJson.getString("result");
-                state = keyJson.getString("state");
+                //state = keyJson.getString("state");
                 System.out.println("VerifiedKey:"+verifiedKey);
                 System.out.println("Game State"+state);
             }
