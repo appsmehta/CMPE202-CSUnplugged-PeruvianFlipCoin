@@ -1,5 +1,7 @@
 //import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 package pfc;
+import java.util.Random;
+
 /**
  * Write a description of class Driver here.
  * 
@@ -21,11 +23,16 @@ public class Driver
 
     boolean[] boolEncoded = new boolean[6];
     boolean[] boolInputCaptainA = new boolean[6];
-    int inputParity, guessedParity;
-    
-    NoInputState noInputState;
-    EncodedInputState encodedInputState;
-    VerifiedOutputState verifiedOutputState;
+    int inputParity, guessedParity,gameKey;
+
+   // private NoPlayerState noPlayerState;
+    private WaitingState waitingState;
+    private KickOffState kickOffState;
+    private NoInputState noInputState;
+    private EncodedInputState encodedInputState;
+    private VerifiedOutputState verifiedOutputState;
+
+    private GameState gamestate;
 
     public static Driver getInstance()
     {
@@ -46,12 +53,13 @@ public class Driver
         
         //team1 = new CaptainA(2);
         //team2 = new CaptainB(4);
-        
+        waitingState = new WaitingState();
+        kickOffState = new KickOffState();
         noInputState = new NoInputState();
         encodedInputState = new EncodedInputState();
         verifiedOutputState = new VerifiedOutputState();
 
-        state = noInputState;
+        gamestate = waitingState;
     }
     
     public String encodedInput(String input)
@@ -100,6 +108,50 @@ public class Driver
             state = verifiedOutputState;
             output = output + ",VerifiedOutputState";
             return output;
+    }
+
+    public String createGame(){
+
+        Random gen = new Random();
+
+        int minRange =1000;
+
+        gameKey = minRange + gen.nextInt(8999);
+
+        setState(kickOffState);
+
+        return (Integer.toString(gameKey));
+
+    }
+
+    public String startGame(String providedKey){
+
+
+        if((Integer.toString(gameKey)).equals(providedKey))
+        {
+            setState(noInputState);
+            return "true";
+            
+
+        }
+
+        else
+        {
+            return "false";
+        }
+
+    }
+
+    public void setState(GameState state){
+
+
+        this.gamestate = state;
+
+    }
+
+    public String getState(){
+
+       return this.gamestate.getClass().getName();
     }
 /*
     public void act() 
