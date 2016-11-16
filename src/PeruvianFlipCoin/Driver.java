@@ -16,7 +16,7 @@ public class Driver
      */
     //CaptainA team1;
     //CaptainB team2;
-    GameState state = new GameState();
+    //GameState state = new GameState();
     Circuit c = new Circuit();
     
     private static Driver theDriver;
@@ -86,7 +86,7 @@ public class Driver
             
             inputParity = findParity();
             
-            state = encodedInputState;
+            gamestate = encodedInputState;
             return new String("EncodedInputState");
     }
 
@@ -105,7 +105,7 @@ public class Driver
                 System.out.println("Captain A won");
             }
             
-            state = verifiedOutputState;
+            gamestate = verifiedOutputState;
             output = output + ",VerifiedOutputState";
             return output;
     }
@@ -140,6 +140,13 @@ public class Driver
             return "false";
         }
 
+    }
+
+    public void resetGame(){
+
+
+        setState(waitingState);
+        gameKey = 1000;
     }
 
     public void setState(GameState state){
@@ -202,8 +209,8 @@ public class Driver
             }
         }
         if(bitCounter%2 == 0)
-        return 1;
-        else
         return 0;
+        else
+        return 1;
     }
 }
