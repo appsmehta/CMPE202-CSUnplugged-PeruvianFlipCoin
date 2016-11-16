@@ -19,7 +19,7 @@ public class Driver extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    private final String service_url = "http://peruvian-2.222f8ff7.svc.dockerapp.io:80/Peru";
+    private final String service_url = "http://peruvian-0c0a30f2.32c4a8ef.svc.dockerapp.io/Peru";
     
     CaptainA team1;
     CaptainB team2;
@@ -234,7 +234,7 @@ public class Driver extends Actor
             {
                 JSONObject keyJson = new JSONObject(keyResult.getText());
                 String verifiedKey = keyJson.getString("result");
-                state = keyJson.getString("state");
+                //state = keyJson.getString("state");
                 System.out.println("VerifiedKey:"+verifiedKey);
                 System.out.println("Game State"+state);
             }
