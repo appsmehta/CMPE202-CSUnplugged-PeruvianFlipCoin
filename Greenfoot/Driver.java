@@ -93,6 +93,14 @@ public class Driver extends Actor
         }
         
         
+        if(state.getClass().getName() == "pfc.NoInputStateState" && playerNumber==1){
+            getInputString();
+        }
+        
+        if(state.getClass().getName() == "pfc.EncodedInputState" && playerNumber==2){
+            getParity();
+        }
+        
         
         
         /*
@@ -168,7 +176,7 @@ public class Driver extends Actor
             //response.put( "result", verified);
             //response.put("state",gameState);
             //JsonRepresentation sendRequest = new JsonRepresentation();
-            //playerNumber = 1;
+            playerNumber = 2;
             Representation keyResult = peruvianClient.post(new JsonRepresentation(sendRequest));//, MediaType.APPLICATION_JSON);
             try
             {
@@ -185,20 +193,54 @@ public class Driver extends Actor
     }
     
     
-    public int findParity()
-    {
-        int i=0;
-        int bitCounter = 0;
-        for(i=0; i<6; i++)
-        {
-            if(boolInputCaptainA[i]==true)
+    public void getInputString(){
+        
+       String input = Greenfoot.ask("Please enter six digit input string");
+       
+       JSONObject sendRequest = new JSONObject();
+            sendRequest.put("function", "EncodeBits");
+            sendRequest.put("inputBits", input);
+            //response.put( "result", verified);
+            //response.put("state",gameState);
+            //JsonRepresentation sendRequest = new JsonRepresentation();
+           
+            Representation keyResult = peruvianClient.post(new JsonRepresentation(sendRequest));//, MediaType.APPLICATION_JSON);
+            try
             {
-                bitCounter++;
+                JSONObject keyJson = new JSONObject(keyResult.getText());
+                String verifiedKey = keyJson.getString("result");
+                state = keyJson.getString("state");
+                System.out.println("VerifiedKey:"+verifiedKey);
+                System.out.println("Game State"+state);
             }
-        }
-        if(bitCounter%2 == 0)
-        return 1;
-        else
-        return 0;
+            catch(Exception e)
+            {
+                System.out.println(e);
+            }
+        
+    }
+    
+    
+    
+    public void getParity()
+    {
+       String input = Greenfoot.ask("Please Guess the Parity");
+       
+       JSONObject sendRequest = new JSONObject();
+            sendRequest.put("function", "GuessParity");
+            sendRequest.put("inputParity", input);
+            Representation keyResult = peruvianClient.post(new JsonRepresentation(sendRequest));//, MediaType.APPLICATION_JSON);
+            try
+            {
+                JSONObject keyJson = new JSONObject(keyResult.getText());
+                String verifiedKey = keyJson.getString("result");
+                state = keyJson.getString("state");
+                System.out.println("VerifiedKey:"+verifiedKey);
+                System.out.println("Game State"+state);
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+            }
     }
 }
