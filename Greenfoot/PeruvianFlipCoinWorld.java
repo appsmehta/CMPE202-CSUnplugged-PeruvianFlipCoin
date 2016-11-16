@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class PeruvianFlipCoinWorld extends World
 {
 
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -42,5 +43,16 @@ public class PeruvianFlipCoinWorld extends World
         addObject(capB, 461, 205);
         Driver driver = new Driver();
         addObject(driver,594,8);
+        // Mobile m = new Mobile(2);
+        //addObject(m,200,200);
+        // mobile.setLocation(473,71);
+        Mobile mobile = new Mobile(2);
+        addObject(mobile,470,77);
+        mobile.setLocation(466,46);
+        Mobile mobile2 = new Mobile(3);
+        addObject(mobile2,69,348);
+        mobile2.setLocation(140,356);
     }
+    
+
 }
