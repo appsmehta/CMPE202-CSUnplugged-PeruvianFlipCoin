@@ -29,6 +29,22 @@ public class PeruvianResource extends ServerResource
 
 		}
 
+		if(inputFunction.equals("ResetGame"))
+		{
+
+			driver.resetGame();
+			//String gameKey = driver.createGame();
+			String gameState = driver.getState();
+			JSONObject response = new JSONObject();
+			//response.put( "result", gameKey);
+			response.put("state",gameState);
+        	return new JsonRepresentation (response) ;
+
+
+
+
+		}
+
 		if(inputFunction.equals("JoinGame"))
 		{
 			
