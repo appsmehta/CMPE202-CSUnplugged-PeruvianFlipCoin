@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Mobile extends Actor
 {
     static GreenfootImage[] images={ new GreenfootImage("mob1.png"),
-                                     new GreenfootImage("mob2.png"),
+                                     new GreenfootImage("mobile.png"),
                                      new GreenfootImage("mob3.png"),
                                      new GreenfootImage("mob4.png")};
     int mobile;

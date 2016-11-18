@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import javax.swing.*;
 
 /**
  * Write a description of class CaptainB here.
@@ -12,8 +13,9 @@ public class CaptainB extends Player
     public CaptainB(int pNum)
         {
             super(pNum);
-            
-           // setImage(images[pNum]);
+             Greenfoot.delay(50);
+             setLocation(345,200);
+             Greenfoot.delay(50);
         }  
     /**
      * Act - do whatever the CaptainB wants to do. This method is called whenever
@@ -49,7 +51,10 @@ public class CaptainB extends Player
     
         public int getParity()
     {
-        String input = Greenfoot.ask("Enter Parity:");
+        //String input = Greenfoot.ask("Enter Parity:");
+        
+        JFrame frame = new JFrame("circuitInput");
+        String input = JOptionPane.showInputDialog(frame, "Enter Parity:");
         System.out.println("Parity: "+input);
         if(input == "0")
         return 0;
