@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import javax.swing.*;
 
 /**
  * Write a description of class CaptainA here.
@@ -15,8 +16,9 @@ public class CaptainA extends Player
     public void act() 
     {
         // Add your action code here.
+        Greenfoot.delay(50);
         setLocation(255,205);
-         //boolean[] boolinput = encodeInput();
+        Greenfoot.delay(50);
     }    
     
     public CaptainA(int pNum)
@@ -28,8 +30,11 @@ public class CaptainA extends Player
         public boolean[] encodeInput(){
         String input="";
         boolean[] boolinput = new boolean[6];       
-                
-        input = Greenfoot.ask("Enter 6 binary bits to be encoded:");       
+         
+        JFrame frame = new JFrame("circuitInput");
+        input = JOptionPane.showInputDialog(frame, "Enter 6 binary bits to be encoded:");
+        
+       // input = Greenfoot.ask("Enter 6 binary bits to be encoded:");       
        
         
         System.out.println(input);

@@ -5,6 +5,7 @@ import org.restlet.representation.* ;
 import org.restlet.ext.json.*;
 import org.json.*;
 import java.util.ArrayList;
+import javax.swing.*;
 
 /**
  * Write a description of class Driver here.
@@ -25,6 +26,7 @@ public class Driver extends Actor
     CaptainB team2;
     //GameState state = new GameState();
     String state;
+    int animationFlag = 0;
     Circuit c = new Circuit();
     ClientResource peruvianClient;
     boolean[] boolEncoded = new boolean[6];
@@ -92,8 +94,17 @@ public class Driver extends Actor
             joinGame();
         }
         
+        if(state.equals("pfc.NoInputState"))
+        {
+            if(animationFlag == 0)
+            {
+             initialAnimation();
+             animationFlag = 1;
+            }
+        }
         
-        if(state.equals("pfc.NoInputState") && playerNumber==1){
+        
+        if(state.equals("pfc.NoInputState") && playerNumber==1 && animationFlag == 1){
             getInputString();
         }
         
@@ -168,7 +179,10 @@ public class Driver extends Actor
     
     public void joinGame()
     {
-       String input = Greenfoot.ask("Enter 4 digit Game Key to connect");
+       //String input = Greenfoot.ask("Enter 4 digit Game Key to connect");
+       
+       JFrame frame = new JFrame("circuitInput");
+       String input = JOptionPane.showInputDialog(frame, "Enter 4 digit Game Key to connect");
        
        JSONObject sendRequest = new JSONObject();
             sendRequest.put("function", "JoinGame");
@@ -195,7 +209,15 @@ public class Driver extends Actor
     
     public void getInputString(){
         
-       String input = Greenfoot.ask("Please enter six digit input string");
+       //String input = Greenfoot.ask("Please enter six digit input string");
+       JFrame frame = new JFrame("circuitInput");
+       String input = JOptionPane.showInputDialog(frame, "Enter 6 binary bits to be encoded:");
+       
+       if(input == null || input.isEmpty() || !input.matches("[0-1]*") || input.length() != 6)
+        {
+            input = "";
+            getInputString();
+        }
        
        JSONObject sendRequest = new JSONObject();
             sendRequest.put("function", "EncodeBits");
@@ -224,7 +246,15 @@ public class Driver extends Actor
     
     public void getParity()
     {
-       String input = Greenfoot.ask("Please Guess the Parity");
+      // String input = Greenfoot.ask("Please Guess the Parity");
+      JFrame frame = new JFrame("circuitInput");
+      String input = JOptionPane.showInputDialog(frame, "Enter Parity:");
+      
+      if(input == null || input.isEmpty() || !input.matches("[0-1]*") || input.length() != 1)
+        {
+            input = "";
+            getParity();
+        }
        
        JSONObject sendRequest = new JSONObject();
             sendRequest.put("function", "GuessParity");
@@ -243,4 +273,111 @@ public class Driver extends Actor
                 System.out.println(e);
             }
     }
+    
+    
+    public void initialAnimation()
+    {
+                World world = getWorld();
+                
+                Greenfoot.delay(50);
+                Mobile mobile1 = new Mobile(1);
+                world.addObject(mobile1, 315, 150);
+               
+                Mobile mobile2 = new Mobile(1);
+                world.addObject(mobile2, 282, 150);
+                Greenfoot.delay(20);
+                //world.showText("Hey Rooney!!", 225, 100);
+                Greenfoot.delay(50);
+                
+                //world.showText("Hey Chris!!", 370, 100);
+                Message message1 = new Message(0);
+                world.addObject(message1, 385, 80);
+                Greenfoot.delay(150);
+                world.removeObject(message1);
+                
+                
+                Message message2 = new Message(2);
+                world.addObject(message2, 210, 80);
+                Greenfoot.delay(150);
+                world.removeObject(message2);
+                
+                Message message3 = new Message(3);
+                world.addObject(message3, 385, 80);
+                Greenfoot.delay(150);
+                world.removeObject(message3);
+                
+                Message message4 = new Message(4);
+                world.addObject(message4, 210, 80);
+                Greenfoot.delay(150);
+                world.removeObject(message4);
+                
+                Message message5 = new Message(5);
+                world.addObject(message5, 385, 80);
+                Greenfoot.delay(150);
+                world.removeObject(message5);
+                
+                Message message6 = new Message(6);
+                world.addObject(message6, 210, 80);
+                Greenfoot.delay(200);
+                world.removeObject(message6);
+                
+                Message message7 = new Message(7);
+                world.addObject(message7, 385, 80);
+                Greenfoot.delay(200);
+                world.removeObject(message7);
+                
+                Message message8 = new Message(8);
+                world.addObject(message8, 210, 80);
+                Greenfoot.delay(200);
+                world.removeObject(message8);
+                
+                Message message9 = new Message(9);
+                world.addObject(message9, 385, 80);
+                Greenfoot.delay(200);
+                world.removeObject(message9);
+                
+                Message message10 = new Message(10);
+                world.addObject(message10, 210, 80);
+                Greenfoot.delay(200);
+                world.removeObject(message10);
+                
+                Message message11 = new Message(11);
+                world.addObject(message11, 385, 80);
+                Greenfoot.delay(200);
+                world.removeObject(message11);
+                
+                
+                Message message12 = new Message(12);
+                world.addObject(message12, 210, 80);
+                Greenfoot.delay(200);
+                world.removeObject(message12);
+                
+                Message message13 = new Message(13);
+                world.addObject(message13, 385, 80);
+                
+                Circuit circuit = new Circuit();
+                world.addObject(circuit, 291, 282);
+                Greenfoot.delay(200);
+                world.removeObject(message13);
+                world.removeObject(circuit);
+                
+                
+                Message message14 = new Message(14);
+                world.addObject(message14, 385, 80);
+                Greenfoot.delay(200);
+                world.removeObject(message14);
+                
+                Message message15 = new Message(15);
+                world.addObject(message15, 385, 80);
+                Greenfoot.delay(200);
+                world.removeObject(message15);
+                
+                Message message16 = new Message(16);
+                world.addObject(message16, 210, 80);
+                Greenfoot.delay(200);
+                world.removeObject(message16);
+             
+                Greenfoot.delay(50);
+    }
+    
 }
