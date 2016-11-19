@@ -18,8 +18,10 @@ public class PeruvianFlipCoinWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-
+        GreenfootImage images =  new GreenfootImage("WelcomeScreen.png");
+        setBackground(images);
         prepare();
+        gameButtons();
     }
 
     /**
@@ -28,7 +30,6 @@ public class PeruvianFlipCoinWorld extends World
      */
     private void prepare()
     {
-
         Player player1 = new Player(0);
         addObject(player1, 372, 331);
         Player player2 = new Player(1);
@@ -41,17 +42,18 @@ public class PeruvianFlipCoinWorld extends World
         addObject(capA, 137, 205);
         CaptainB capB = new CaptainB(4);
         addObject(capB, 461, 205);
+    }
+    
+        private void gameButtons()
+    {
         Driver driver = new Driver();
         addObject(driver,594,8);
-        // Mobile m = new Mobile(2);
-        //addObject(m,200,200);
-        // mobile.setLocation(473,71);
         Mobile mobile = new Mobile(2);
-        addObject(mobile,470,77);
-        mobile.setLocation(466,46);
+        addObject(mobile,498,219);
+        mobile.setLocation(498,219);
         Mobile mobile2 = new Mobile(3);
-        addObject(mobile2,69,348);
-        mobile2.setLocation(140,356);
+        addObject(mobile2,500,279);
+        mobile2.setLocation(500,279);
     }
     
 

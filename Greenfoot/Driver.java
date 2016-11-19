@@ -20,7 +20,7 @@ public class Driver extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    private final String service_url = "http://peruvian-3c74081a.d9c9ced2.svc.dockerapp.io/Peru";
+    private final String service_url = "http://peruvian-3c74081a.d9c9ced2.svc.dockerapp.io:80/Peru";
     
     CaptainA team1;
     CaptainB team2;
@@ -80,14 +80,14 @@ public class Driver extends Actor
         {
         }
         
-        ArrayList<Mobile> arr = (ArrayList<Mobile>)getWorld().getObjectsAt(466,46,Mobile.class);
+        ArrayList<Mobile> arr = (ArrayList<Mobile>)getWorld().getObjectsAt(498,219,Mobile.class);
         
        if(Greenfoot.mouseClicked(arr.get(0)))
        {
            createGame();
         }
         
-        ArrayList<Mobile> arrr = (ArrayList<Mobile>)getWorld().getObjectsAt(140,356,Mobile.class);
+        ArrayList<Mobile> arrr = (ArrayList<Mobile>)getWorld().getObjectsAt(500,279,Mobile.class);
         
         if(Greenfoot.mouseClicked(arrr.get(0)))
         {
