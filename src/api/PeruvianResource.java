@@ -1,4 +1,4 @@
-package api ;
+		package api ;
 
 import org.json.* ;
 import org.restlet.representation.* ;
@@ -80,6 +80,16 @@ public class PeruvianResource extends ServerResource
         	response.put( "result", output ) ;
 
         	return new JsonRepresentation ( response ) ;
+        }
+
+        if(inputFunction.equals("GetResult"))
+        {
+			String output = driver.getResult();
+			JSONObject response = new JSONObject() ;
+        	response.put( "result", output ) ;
+
+        	return new JsonRepresentation ( response ) ;
+
         }
 
         	JSONObject response = new JSONObject() ;
