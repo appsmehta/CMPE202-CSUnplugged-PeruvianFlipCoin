@@ -20,7 +20,6 @@ public class PeruvianFlipCoinWorld extends World
         super(600, 400, 1); 
         GreenfootImage images =  new GreenfootImage("WelcomeScreen.png");
         setBackground(images);
-        prepare();
         gameButtons();
     }
 
@@ -28,21 +27,6 @@ public class PeruvianFlipCoinWorld extends World
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
-    private void prepare()
-    {
-        Player player1 = new Player(0);
-        addObject(player1, 372, 331);
-        Player player2 = new Player(1);
-        addObject(player2, 561, 331);
-        Player player3 = new Player(2);
-        addObject(player3, 237, 64);
-        Player player4 = new Player(3);
-        addObject(player4, 44, 64);
-        CaptainA capA = new CaptainA(5);
-        addObject(capA, 137, 205);
-        CaptainB capB = new CaptainB(4);
-        addObject(capB, 461, 205);
-    }
     
         private void gameButtons()
     {
