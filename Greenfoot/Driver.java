@@ -81,17 +81,21 @@ public class Driver extends Actor
         }
         
         ArrayList<Mobile> arr = (ArrayList<Mobile>)getWorld().getObjectsAt(498,219,Mobile.class);
-        
-       if(Greenfoot.mouseClicked(arr.get(0)))
-       {
-           createGame();
+        if(arr.size()!=0)
+        {
+            if(Greenfoot.mouseClicked(arr.get(0)))
+            {
+                createGame();
+            }
         }
         
         ArrayList<Mobile> arrr = (ArrayList<Mobile>)getWorld().getObjectsAt(500,279,Mobile.class);
-        
-        if(Greenfoot.mouseClicked(arrr.get(0)))
+        if(arrr.size()!=0)
         {
-            joinGame();
+            if(Greenfoot.mouseClicked(arrr.get(0)))
+            {
+                joinGame();
+            }
         }
         
         if(state.equals("pfc.NoInputState"))
@@ -99,9 +103,9 @@ public class Driver extends Actor
             
             if(animationFlag == 0)
             {
-             initialAnimation();
-             animationFlag = 1;
              prepare();
+             initialAnimation();
+             animationFlag = 1;             
             }
         }
         
@@ -153,6 +157,10 @@ public class Driver extends Actor
     
     private void prepare()
     {
+        ArrayList<Mobile> arr = (ArrayList<Mobile>)getWorld().getObjectsAt(498,219,Mobile.class);
+        getWorld().removeObject(arr.get(0));
+        ArrayList<Mobile> arrr = (ArrayList<Mobile>)getWorld().getObjectsAt(500,279,Mobile.class);
+        getWorld().removeObject(arrr.get(0));
         GreenfootImage images =  new GreenfootImage("world1.png");
         getWorld().setBackground(images);
         Player player1 = new Player(0);
