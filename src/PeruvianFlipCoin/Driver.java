@@ -33,6 +33,7 @@ public class Driver
     private VerifiedOutputState verifiedOutputState;
 
     private GameState gamestate;
+    private String output = "";
 
     public static Driver getInstance()
     {
@@ -92,7 +93,7 @@ public class Driver
 
     public String guessParity(int guessedParity)
     {
-        String output = "";
+        
         this.guessedParity = guessedParity;
             if(guessedParity == inputParity)
             {
@@ -108,6 +109,11 @@ public class Driver
             gamestate = verifiedOutputState;
             output = output + ",VerifiedOutputState";
             return output;
+    }
+
+    public String getResult(){
+
+        return output;
     }
 
     public String createGame(){
