@@ -96,10 +96,12 @@ public class Driver extends Actor
         
         if(state.equals("pfc.NoInputState"))
         {
+            
             if(animationFlag == 0)
             {
              initialAnimation();
              animationFlag = 1;
+             prepare();
             }
         }
         
@@ -147,7 +149,25 @@ public class Driver extends Actor
         
         */
         // Add your action code here.
-    }   
+    }  
+    
+    private void prepare()
+    {
+        GreenfootImage images =  new GreenfootImage("world1.png");
+        getWorld().setBackground(images);
+        Player player1 = new Player(0);
+        getWorld().addObject(player1, 372, 331);
+        Player player2 = new Player(1);
+        getWorld().addObject(player2, 561, 331);
+        Player player3 = new Player(2);
+        getWorld().addObject(player3, 237, 64);
+        Player player4 = new Player(3);
+        getWorld().addObject(player4, 44, 64);
+        CaptainA capA = new CaptainA(5);
+        getWorld().addObject(capA, 137, 205);
+        CaptainB capB = new CaptainB(4);
+        getWorld().addObject(capB, 461, 205);
+    }
     
     public void createGame()
     {
