@@ -163,22 +163,21 @@ public class Driver extends Actor
         getWorld().removeObject(arrr.get(0));
         GreenfootImage images =  new GreenfootImage("world1.png");
         getWorld().setBackground(images);
-        
         Player player1 = new Player(0);
-        getWorld().addObject(player1, 528, 305);//RVP
+        getWorld().addObject(player1, 608, 616);//RVP done
         Player player2 = new Player(1);
-        getWorld().addObject(player2, 778, 384);//Mata
+        getWorld().addObject(player2, 941, 625);//Mata done
         Player player3 = new Player(2);
-        getWorld().addObject(player3, 398, 133);//Bale
+        getWorld().addObject(player3, 398, 133);//Bale done
         Player player4 = new Player(3);
-        getWorld().addObject(player4, 82, 122);//James
+        getWorld().addObject(player4, 82, 122);//James done
         CaptainA capA = new CaptainA(5);
-        getWorld().addObject(capA, 241, 378);//Ronaldo
+        getWorld().addObject(capA, 242, 378);//Ronaldo done
         CaptainB capB = new CaptainB(4);
-        getWorld().addObject(capB, 494, 305);
+        getWorld().addObject(capB, 780, 383);//Rooney done
         Greenfoot.delay(50);
-        capA.setLocation(606,614);
-        capB.setLocation(947,614);
+        capA.setLocation(464,378);//Ronaldo Talking
+        capB.setLocation(553,384);//Rooney Talking
         Greenfoot.delay(50);
     }
     
@@ -198,10 +197,7 @@ public class Driver extends Actor
                 JSONObject keyJson = new JSONObject(keyResult.getText());
                 String gameKey = keyJson.getString("result");
                 state = keyJson.getString("state");
-                JFrame frame = new JFrame("circuitInput");
-                JOptionPane.showMessageDialog(frame, "Your Game Key: "+gameKey);
-                
-              //  System.out.println("Game Key"+gameKey);
+                System.out.println("Game Key"+gameKey);
                 System.out.println("Game State"+state);
             }
             catch(Exception e)
@@ -234,15 +230,6 @@ public class Driver extends Actor
                 String verifiedKey = keyJson.getString("result");
                 state = keyJson.getString("state");
                 System.out.println("VerifiedKey:"+verifiedKey);
-                
-                 if(verifiedKey.equals("false"))
-                 {
-                     JFrame frame1 = new JFrame("circuitInput");
-                     JOptionPane.showMessageDialog(frame1,"Incorrect Gamekey, Please reenter","Warning",JOptionPane.WARNING_MESSAGE);
-                     System.out.println("VerifiedKey:"+verifiedKey);
-                     joinGame();
-                 }
-                
                 System.out.println("Game State"+state);
             }
             catch(Exception e)
@@ -261,9 +248,6 @@ public class Driver extends Actor
        if(input == null || input.isEmpty() || !input.matches("[0-1]*") || input.length() != 6)
         {
             input = "";
-            JFrame frame1 = new JFrame("circuitInput");
-            JOptionPane.showMessageDialog(frame1,"Invalid input string, Please reenter","Warning",JOptionPane.WARNING_MESSAGE);
-            
             getInputString();
         }
        
@@ -301,8 +285,6 @@ public class Driver extends Actor
       if(input == null || input.isEmpty() || !input.matches("[0-1]*") || input.length() != 1)
         {
             input = "";
-            JFrame frame1 = new JFrame("circuitInput");
-            JOptionPane.showMessageDialog(frame1,"Invalid parity, please reenter","Warning",JOptionPane.WARNING_MESSAGE);
             getParity();
         }
        
@@ -316,7 +298,6 @@ public class Driver extends Actor
                 String verifiedKey = keyJson.getString("result");
                 //state = keyJson.getString("state");
                 System.out.println("VerifiedKey:"+verifiedKey);
-                showResult(verifiedKey); 
                 System.out.println("Game State"+state);
             }
             catch(Exception e)
@@ -325,14 +306,6 @@ public class Driver extends Actor
             }
     }
     
-    public void showResult(String verifiedKey)
-     {
-         String[] result = verifiedKey.split(",", 2);
-         System.out.println("VerifiedKey:"+result[0]);
-         JFrame frame1 = new JFrame("circuitInput");
-         JOptionPane.showMessageDialog(frame1, ""+result[0]);
-     }
-    
     
     public void initialAnimation()
     {
@@ -340,98 +313,102 @@ public class Driver extends Actor
                 
                 Greenfoot.delay(50);
                 Mobile mobile1 = new Mobile(1);
-                world.addObject(mobile1, 315, 150);
+                world.addObject(mobile1, 495, 324);
                
                 Mobile mobile2 = new Mobile(1);
-                world.addObject(mobile2, 282, 150);
+                world.addObject(mobile2, 526, 324);
                 Greenfoot.delay(20);
                 //world.showText("Hey Rooney!!", 225, 100);
                 Greenfoot.delay(50);
                 
                 //world.showText("Hey Chris!!", 370, 100);
-                Message message1 = new Message(4);  //hey cris
-                world.addObject(message1, 385, 80);
-                Greenfoot.playSound("r1.wav");
+                Message message1 = new Message(0);
+                world.addObject(message1, 597, 251);
                 Greenfoot.delay(150);
                 world.removeObject(message1);
                 
                 
-                Message message2 = new Message(5);  //hey rooney
-                world.addObject(message2, 210, 80);
-                Greenfoot.playSound("c1.wav");
+                Message message2 = new Message(2);
+                world.addObject(message2, 422, 251);
                 Greenfoot.delay(150);
                 world.removeObject(message2);
                 
-                Message message3 = new Message(6);  //Lets have a game this weekend
-                world.addObject(message3, 385, 80);
-                Greenfoot.playSound("r2.wav");
+                Message message3 = new Message(3);
+                world.addObject(message3, 597, 251);
                 Greenfoot.delay(150);
                 world.removeObject(message3);
                 
-                Message message4 = new Message(7);  //Sure, Come to our homeground
-                world.addObject(message4, 210, 80);
-                Greenfoot.playSound("c2.wav");
+                Message message4 = new Message(4);
+                world.addObject(message4, 422, 251);
                 Greenfoot.delay(150);
                 world.removeObject(message4);
                 
-                Message message5 = new Message(8);  //unfair
-                world.addObject(message5, 385, 80);
-                Greenfoot.playSound("r3.wav");
+                Message message5 = new Message(5);
+                world.addObject(message5, 597, 251);
                 Greenfoot.delay(150);
                 world.removeObject(message5);
                 
-                Message message6 = new Message(9);  //flip coin
-                world.addObject(message6, 385, 80);
+                Message message6 = new Message(6);
+                world.addObject(message6, 422, 251);
                 Greenfoot.delay(200);
                 world.removeObject(message6);
                 
-                Message message7 = new Message(10); //Ok, fairness
-                world.addObject(message7, 210, 80);
-                Greenfoot.playSound("c3.wav");
+                Message message7 = new Message(7);
+                world.addObject(message7, 597, 251);
                 Greenfoot.delay(200);
                 world.removeObject(message7);
                 
-                Message message8 = new Message(11); //It's not just a normal toss, it’s called Peruvian flip coin.
-                world.addObject(message8, 385, 80);
-                Greenfoot.playSound("r4.wav");
+                Message message8 = new Message(8);
+                world.addObject(message8, 422, 251);
                 Greenfoot.delay(200);
                 world.removeObject(message8);
                 
-                
-                Message message9 = new Message(12); //how does it work?
-                world.addObject(message9, 210, 80);
-                Greenfoot.playSound("c4.wav");
+                Message message9 = new Message(9);
+                world.addObject(message9, 597, 251);
                 Greenfoot.delay(200);
                 world.removeObject(message9);
                 
-                Message message10 = new Message(13);    //I'll provide a binary input to this circuit. You need to guess its parity.
-                world.addObject(message10, 385, 80);
-                Greenfoot.playSound("r5.wav");
+                Message message10 = new Message(10);
+                world.addObject(message10, 422, 251);
                 Greenfoot.delay(200);
                 world.removeObject(message10);
                 
-                Circuit circuit = new Circuit();
-                world.addObject(circuit, 510, 500);
-                Greenfoot.delay(200);
-                world.removeObject(message10);
-                world.removeObject(circuit);
-                
-                Message message11 = new Message(14);    //If you guess it correct, you win. 
-                world.addObject(message11, 385, 80);
-                Greenfoot.playSound("r6.wav");
+                Message message11 = new Message(11);
+                world.addObject(message11, 597, 251);
                 Greenfoot.delay(200);
                 world.removeObject(message11);
                 
                 
-                Message message12 = new Message(15);    //You can verify the result from your end to check fairness.
-                world.addObject(message12, 385, 80);
-                Greenfoot.playSound("r7.wav");
+                Message message12 = new Message(12);
+                world.addObject(message12, 422, 251);
                 Greenfoot.delay(200);
                 world.removeObject(message12);
                 
-                Message message13 = new Message(16);    //Ok, I am in.
-                world.addObject(message13, 210, 80);
-                Greenfoot.playSound("c5.wav");
+                Message message13 = new Message(13);
+                world.addObject(message13, 597, 251);
+                
+                Circuit circuit = new Circuit();
+                world.addObject(circuit, 510, 500);
+                Greenfoot.delay(200);
+                world.removeObject(message13);
+                world.removeObject(circuit);
+                
+                
+                Message message14 = new Message(14);
+                world.addObject(message14, 597, 251);
+                Greenfoot.delay(200);
+                world.removeObject(message14);
+                
+                Message message15 = new Message(15);
+                world.addObject(message15, 597, 251);
+                Greenfoot.delay(200);
+                world.removeObject(message15);
+                
+                Message message16 = new Message(16);
+                world.addObject(message16, 422, 251);
+                Greenfoot.delay(200);
+                world.removeObject(message16);
+             
                 Greenfoot.delay(50);
     }
     
