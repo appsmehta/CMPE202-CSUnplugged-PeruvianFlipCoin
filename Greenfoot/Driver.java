@@ -164,20 +164,20 @@ public class Driver extends Actor
         GreenfootImage images =  new GreenfootImage("world1.png");
         getWorld().setBackground(images);
         Player player1 = new Player(0);
-        getWorld().addObject(player1, 372, 331);
+        getWorld().addObject(player1, 528, 305);//RVP
         Player player2 = new Player(1);
-        getWorld().addObject(player2, 561, 331);
+        getWorld().addObject(player2, 778, 384);//Mata
         Player player3 = new Player(2);
-        getWorld().addObject(player3, 237, 64);
+        getWorld().addObject(player3, 398, 133);//Bale
         Player player4 = new Player(3);
-        getWorld().addObject(player4, 44, 64);
+        getWorld().addObject(player4, 82, 122);//James
         CaptainA capA = new CaptainA(5);
-        getWorld().addObject(capA, 137, 205);
+        getWorld().addObject(capA, 241, 378);//Ronaldo
         CaptainB capB = new CaptainB(4);
-        getWorld().addObject(capB, 461, 205);
+        getWorld().addObject(capB, 494, 305);
         Greenfoot.delay(50);
-        capA.setLocation(255,205);
-        capB.setLocation(345,200);
+        capA.setLocation(606,614);
+        capB.setLocation(947,614);
         Greenfoot.delay(50);
     }
     
@@ -388,7 +388,7 @@ public class Driver extends Actor
                 world.addObject(message13, 385, 80);
                 
                 Circuit circuit = new Circuit();
-                world.addObject(circuit, 291, 282);
+                world.addObject(circuit, 510, 500);
                 Greenfoot.delay(200);
                 world.removeObject(message13);
                 world.removeObject(circuit);
