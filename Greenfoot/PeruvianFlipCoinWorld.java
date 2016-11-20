@@ -33,11 +33,11 @@ public class PeruvianFlipCoinWorld extends World
         Driver driver = new Driver();
         addObject(driver,594,8);
         Mobile mobile = new Mobile(2);
-        addObject(mobile,498,219);
-        mobile.setLocation(498,219);
+        addObject(mobile,871,480);
+        mobile.setLocation(871,480);
         Mobile mobile2 = new Mobile(3);
-        addObject(mobile2,500,279);
-        mobile2.setLocation(500,279);
+        addObject(mobile2,872,563);
+        mobile2.setLocation(872,563);
     }
 
     /**

@@ -157,9 +157,9 @@ public class Driver extends Actor
     
     private void prepare()
     {
-        ArrayList<Mobile> arr = (ArrayList<Mobile>)getWorld().getObjectsAt(498,219,Mobile.class);
+        ArrayList<Mobile> arr = (ArrayList<Mobile>)getWorld().getObjectsAt(871,480,Mobile.class);
         getWorld().removeObject(arr.get(0));
-        ArrayList<Mobile> arrr = (ArrayList<Mobile>)getWorld().getObjectsAt(500,279,Mobile.class);
+        ArrayList<Mobile> arrr = (ArrayList<Mobile>)getWorld().getObjectsAt(872,563,Mobile.class);
         getWorld().removeObject(arrr.get(0));
         GreenfootImage images =  new GreenfootImage("world1.png");
         getWorld().setBackground(images);
