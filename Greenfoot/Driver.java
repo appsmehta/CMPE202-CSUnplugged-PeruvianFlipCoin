@@ -175,6 +175,10 @@ public class Driver extends Actor
         getWorld().addObject(capA, 137, 205);
         CaptainB capB = new CaptainB(4);
         getWorld().addObject(capB, 461, 205);
+        Greenfoot.delay(50);
+        capA.setLocation(255,205);
+        capB.setLocation(345,200);
+        Greenfoot.delay(50);
     }
     
     public void createGame()
