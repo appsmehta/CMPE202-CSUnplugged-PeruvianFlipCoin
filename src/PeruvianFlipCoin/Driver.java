@@ -69,6 +69,7 @@ public class Driver
 
 
         char [] inputbits = input.toCharArray();
+        char [] outputBits = new char[6];
         int i=0;
         for(char a : inputbits)
         {
@@ -86,9 +87,19 @@ public class Driver
             System.out.println("Encoded: "+boolEncoded[0]+""+boolEncoded[1]+""+boolEncoded[2]+""+boolEncoded[3]+""+boolEncoded[4]+""+boolEncoded[5]);
             
             inputParity = findParity();
-            
+            i=0;
+            for(boolean a : boolEncoded)
+            {
+                if(a)
+               outputBits[i]='1';
+               else
+               outputBits[i]='0';
+                 i++;
+              }
+
             gamestate = encodedInputState;
-            return new String("EncodedInputState");
+            String outputResult = new String(outputBits);
+            return outputResult;
     }
 
     public String guessParity(int guessedParity)
