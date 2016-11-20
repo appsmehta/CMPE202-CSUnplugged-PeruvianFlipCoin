@@ -15,10 +15,7 @@ public class CaptainA extends Player
      */
     public void act() 
     {
-        // Add your action code here.
-        Greenfoot.delay(50);
-        setLocation(255,205);
-        Greenfoot.delay(50);
+       
     }    
     
     public CaptainA(int pNum)

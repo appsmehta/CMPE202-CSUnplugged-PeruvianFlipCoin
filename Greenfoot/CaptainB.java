@@ -13,9 +13,6 @@ public class CaptainB extends Player
     public CaptainB(int pNum)
         {
             super(pNum);
-             Greenfoot.delay(50);
-             setLocation(345,200);
-             Greenfoot.delay(50);
         }  
     /**
      * Act - do whatever the CaptainB wants to do. This method is called whenever
@@ -23,9 +20,7 @@ public class CaptainB extends Player
      */
     public void act() 
     {
-        // Add your action code here.
-        setLocation(345,200);
-        //boolean[] boolinput = encodeInput();
+        
     }    
     
     public boolean[] encodeInput(){
