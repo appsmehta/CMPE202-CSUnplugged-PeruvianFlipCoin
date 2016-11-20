@@ -80,7 +80,7 @@ public class Driver extends Actor
         {
         }
         
-        ArrayList<Mobile> arr = (ArrayList<Mobile>)getWorld().getObjectsAt(498,219,Mobile.class);
+        ArrayList<Mobile> arr = (ArrayList<Mobile>)getWorld().getObjectsAt(871,480,Mobile.class);
         if(arr.size()!=0)
         {
             if(Greenfoot.mouseClicked(arr.get(0)))
@@ -89,7 +89,7 @@ public class Driver extends Actor
             }
         }
         
-        ArrayList<Mobile> arrr = (ArrayList<Mobile>)getWorld().getObjectsAt(500,279,Mobile.class);
+        ArrayList<Mobile> arrr = (ArrayList<Mobile>)getWorld().getObjectsAt(872,563,Mobile.class);
         if(arrr.size()!=0)
         {
             if(Greenfoot.mouseClicked(arrr.get(0)))
@@ -104,7 +104,7 @@ public class Driver extends Actor
             if(animationFlag == 0)
             {
              prepare();
-           //  initialAnimation();
+             initialAnimation();
              animationFlag = 1;             
             }
         }
@@ -197,11 +197,7 @@ public class Driver extends Actor
                 JSONObject keyJson = new JSONObject(keyResult.getText());
                 String gameKey = keyJson.getString("result");
                 state = keyJson.getString("state");
-             //   System.out.println("Game Key"+gameKey);
-             
-                JFrame frame = new JFrame("circuitInput");
-                JOptionPane.showMessageDialog(frame, "Your Game Key: "+gameKey);
-             
+                System.out.println("Game Key"+gameKey);
                 System.out.println("Game State"+state);
             }
             catch(Exception e)
@@ -232,15 +228,6 @@ public class Driver extends Actor
             {
                 JSONObject keyJson = new JSONObject(keyResult.getText());
                 String verifiedKey = keyJson.getString("result");
-                
-                if(verifiedKey.equals("false"))
-                {
-                    JFrame frame1 = new JFrame("circuitInput");
-                    JOptionPane.showMessageDialog(frame1,"Incorrect Gamekey, Please reenter","Warning",JOptionPane.WARNING_MESSAGE);
-                    System.out.println("VerifiedKey:"+verifiedKey);
-                    joinGame();
-                }
-                
                 state = keyJson.getString("state");
                 System.out.println("VerifiedKey:"+verifiedKey);
                 System.out.println("Game State"+state);
@@ -261,8 +248,6 @@ public class Driver extends Actor
        if(input == null || input.isEmpty() || !input.matches("[0-1]*") || input.length() != 6)
         {
             input = "";
-            JFrame frame1 = new JFrame("circuitInput");
-            JOptionPane.showMessageDialog(frame1,"Invalid input string, Please reenter","Warning",JOptionPane.WARNING_MESSAGE);
             getInputString();
         }
        
@@ -300,8 +285,6 @@ public class Driver extends Actor
       if(input == null || input.isEmpty() || !input.matches("[0-1]*") || input.length() != 1)
         {
             input = "";
-            JFrame frame1 = new JFrame("circuitInput");
-            JOptionPane.showMessageDialog(frame1,"Invalid parity, please reenter","Warning",JOptionPane.WARNING_MESSAGE);
             getParity();
         }
        
@@ -315,23 +298,12 @@ public class Driver extends Actor
                 String verifiedKey = keyJson.getString("result");
                 //state = keyJson.getString("state");
                 System.out.println("VerifiedKey:"+verifiedKey);
-                
-                showResult(verifiedKey); 
                 System.out.println("Game State"+state);
             }
             catch(Exception e)
             {
                 System.out.println(e);
             }
-    }
-    
-    
-    public void showResult(String verifiedKey)
-    {
-        String[] result = verifiedKey.split(",", 2);
-        System.out.println("VerifiedKey:"+result[0]);
-        JFrame frame1 = new JFrame("circuitInput");
-        JOptionPane.showMessageDialog(frame1, ""+result[0]);
     }
     
     
