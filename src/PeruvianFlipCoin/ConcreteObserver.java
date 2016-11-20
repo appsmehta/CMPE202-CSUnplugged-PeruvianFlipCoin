@@ -1,3 +1,4 @@
+package pfc;
 import pfc.Driver;
 
 public class ConcreteObserver implements PeruvianObserver {
@@ -14,9 +15,10 @@ public class ConcreteObserver implements PeruvianObserver {
 	    // do nothing
 	}
 
-    public void showState()
+    public String showState()
     {
         System.out.println( "Observer: " + this.getClass().getName() + " = " + observerState );
+        return observerState;
     }
 	 
 }
