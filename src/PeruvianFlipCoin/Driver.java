@@ -24,7 +24,7 @@ public class Driver
     boolean[] boolEncoded = new boolean[6];
     boolean[] boolInputCaptainA = new boolean[6];
     int inputParity, guessedParity,gameKey;
-
+    String givenInput,generatedOutput;
    // private NoPlayerState noPlayerState;
     private WaitingState waitingState;
     private KickOffState kickOffState;
@@ -67,7 +67,7 @@ public class Driver
     {
         //this.boolEncoded = boolEncoded;
 
-
+        givenInput = input;
         char [] inputbits = input.toCharArray();
         int i=0;
         for(char a : inputbits)
@@ -146,6 +146,34 @@ public class Driver
             return "false";
         }
 
+    }
+
+    public String getInputBits(){
+
+        return givenInput;
+    }
+
+    public String getGuessedParity(){
+
+        return Integer.toString(guessedParity);
+    }
+
+    public String getEncodedBits(){
+
+        generatedOutput="";
+
+        for(boolean a : boolEncoded)
+        {
+            if(a==true)
+            {
+                generatedOutput+="1";
+            }
+
+            else
+                generatedOutput+="0";
+        }
+
+        return generatedOutput;
     }
 
     public void resetGame(){
