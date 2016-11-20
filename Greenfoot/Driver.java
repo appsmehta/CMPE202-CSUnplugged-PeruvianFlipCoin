@@ -197,7 +197,10 @@ public class Driver extends Actor
                 JSONObject keyJson = new JSONObject(keyResult.getText());
                 String gameKey = keyJson.getString("result");
                 state = keyJson.getString("state");
-                System.out.println("Game Key"+gameKey);
+                JFrame frame = new JFrame("circuitInput");
+                JOptionPane.showMessageDialog(frame, "Your Game Key: "+gameKey);
+                
+              //  System.out.println("Game Key"+gameKey);
                 System.out.println("Game State"+state);
             }
             catch(Exception e)
@@ -230,6 +233,15 @@ public class Driver extends Actor
                 String verifiedKey = keyJson.getString("result");
                 state = keyJson.getString("state");
                 System.out.println("VerifiedKey:"+verifiedKey);
+                
+                 if(verifiedKey.equals("false"))
+                 {
+                     JFrame frame1 = new JFrame("circuitInput");
+                     JOptionPane.showMessageDialog(frame1,"Incorrect Gamekey, Please reenter","Warning",JOptionPane.WARNING_MESSAGE);
+                     System.out.println("VerifiedKey:"+verifiedKey);
+                     joinGame();
+                 }
+                
                 System.out.println("Game State"+state);
             }
             catch(Exception e)
@@ -248,6 +260,9 @@ public class Driver extends Actor
        if(input == null || input.isEmpty() || !input.matches("[0-1]*") || input.length() != 6)
         {
             input = "";
+            JFrame frame1 = new JFrame("circuitInput");
+            JOptionPane.showMessageDialog(frame1,"Invalid input string, Please reenter","Warning",JOptionPane.WARNING_MESSAGE);
+            
             getInputString();
         }
        
@@ -285,6 +300,8 @@ public class Driver extends Actor
       if(input == null || input.isEmpty() || !input.matches("[0-1]*") || input.length() != 1)
         {
             input = "";
+            JFrame frame1 = new JFrame("circuitInput");
+            JOptionPane.showMessageDialog(frame1,"Invalid parity, please reenter","Warning",JOptionPane.WARNING_MESSAGE);
             getParity();
         }
        
@@ -298,6 +315,7 @@ public class Driver extends Actor
                 String verifiedKey = keyJson.getString("result");
                 //state = keyJson.getString("state");
                 System.out.println("VerifiedKey:"+verifiedKey);
+                showResult(verifiedKey); 
                 System.out.println("Game State"+state);
             }
             catch(Exception e)
@@ -305,6 +323,14 @@ public class Driver extends Actor
                 System.out.println(e);
             }
     }
+    
+    public void showResult(String verifiedKey)
+     {
+         String[] result = verifiedKey.split(",", 2);
+         System.out.println("VerifiedKey:"+result[0]);
+         JFrame frame1 = new JFrame("circuitInput");
+         JOptionPane.showMessageDialog(frame1, ""+result[0]);
+     }
     
     
     public void initialAnimation()
