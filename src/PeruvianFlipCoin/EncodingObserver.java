@@ -1,3 +1,5 @@
+import pfc.Driver;
+
 public class EncodingObserver extends ConcreteObserver
 {
 	public EncodingObserver(Driver driver){
@@ -12,7 +14,7 @@ public class EncodingObserver extends ConcreteObserver
 
 		if(gameDriver.getState().equals("pfc.NoInputState"))
 		{
-			observerState = driver.getEncodedBits();
+			observerState = gameDriver.getEncodedBits();
 		}
 	}
 }

@@ -1,3 +1,4 @@
+import pfc.Driver;
 public class OutcomeObserver extends ConcreteObserver {
 	
 
@@ -14,7 +15,7 @@ public class OutcomeObserver extends ConcreteObserver {
 
 		if(gameDriver.getState().equals("pfc.VerfifiedOutputState"))
 		{
-			observerState = driver.getResult();
+			observerState = gameDriver.getResult();
 		}
 	}
 

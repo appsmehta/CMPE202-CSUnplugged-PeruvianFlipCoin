@@ -1,3 +1,4 @@
+import pfc.Driver;
 public class ParityGuessObserver extends ConcreteObserver {
 	
 
@@ -14,7 +15,7 @@ public class ParityGuessObserver extends ConcreteObserver {
 
 		if(gameDriver.getState().equals("pfc.VerfifiedOutputState"))
 		{
-			observerState = driver.getGuessedParity();
+			observerState = gameDriver.getGuessedParity();
 		}
 	}
 

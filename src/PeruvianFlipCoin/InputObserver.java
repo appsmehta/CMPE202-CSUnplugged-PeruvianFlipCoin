@@ -1,3 +1,5 @@
+import pfc.Driver;
+
 public class InputObserver extends ConcreteObserver {
 	
 
@@ -14,7 +16,7 @@ public class InputObserver extends ConcreteObserver {
 
 		if(gameDriver.getState().equals("pfc.NoInputState"))
 		{
-			observerState = driver.getInputBits();
+			observerState = gameDriver.getInputBits();
 		}
 	}
 
