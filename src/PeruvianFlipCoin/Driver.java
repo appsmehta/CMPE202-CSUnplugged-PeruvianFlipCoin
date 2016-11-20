@@ -54,11 +54,11 @@ public class Driver
         
         //team1 = new CaptainA(2);
         //team2 = new CaptainB(4);
-        waitingState = new WaitingState();
-        kickOffState = new KickOffState();
-        noInputState = new NoInputState();
-        encodedInputState = new EncodedInputState();
-        verifiedOutputState = new VerifiedOutputState();
+        waitingState = new WaitingState(this);
+        kickOffState = new KickOffState(this);
+        noInputState = new NoInputState(this);
+        encodedInputState = new EncodedInputState(this);
+        verifiedOutputState = new VerifiedOutputState(this);
 
         gamestate = waitingState;
     }
