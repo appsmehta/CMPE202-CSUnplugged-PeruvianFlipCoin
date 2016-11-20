@@ -8,6 +8,9 @@ public class NoInputState extends GameState
         super(gameDriver);
     }
 
+    public void setState(){
+        gameDriver.setState(gameDriver.getEncodedInputState());
+    }
            
     public String toString()
     {

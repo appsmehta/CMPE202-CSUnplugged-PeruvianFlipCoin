@@ -10,6 +10,9 @@ public class EncodedInputState extends GameState
     }
 
    
+    public void setState(){
+        gameDriver.setState(gameDriver.getVerifiedOutputState());
+    }
  
     public String toString()
     {

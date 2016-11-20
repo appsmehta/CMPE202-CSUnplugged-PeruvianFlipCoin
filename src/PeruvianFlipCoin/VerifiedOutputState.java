@@ -8,7 +8,10 @@ public class VerifiedOutputState extends GameState
         super(gameDriver);
     }
 
-    
+    public void setState(){
+        //gameDriver.setState(gameDriver.get());
+    }
+
     public String toString()
     {
         return "VerifiedOutputState";
