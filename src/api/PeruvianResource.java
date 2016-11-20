@@ -5,6 +5,7 @@ import org.restlet.representation.* ;
 import org.restlet.ext.json.* ;
 import org.restlet.resource.* ;
 import pfc.Driver ;
+import pfc.ObserverClient;
 
 public class PeruvianResource extends ServerResource
 {
