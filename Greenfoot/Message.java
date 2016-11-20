@@ -13,8 +13,11 @@ public class Message extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    static GreenfootImage[] images={ new GreenfootImage("message4.png"),
+    static GreenfootImage[] images={ new GreenfootImage("mobile.png"),
                                      new GreenfootImage("mobile.png"),
+                                     new GreenfootImage("mobile.png"),
+                                     new GreenfootImage("mobile.png"),
+                                     new GreenfootImage("message4.png"),
                                      new GreenfootImage("message5.png"),
                                      new GreenfootImage("message6.png"),
                                      new GreenfootImage("message7.png"),
@@ -26,11 +29,7 @@ public class Message extends Actor
                                      new GreenfootImage("message13.png"),
                                      new GreenfootImage("message14.png"),
                                      new GreenfootImage("message15.png"),
-                                     new GreenfootImage("message16.png"),
-                                     new GreenfootImage("message17.png"),
-                                     new GreenfootImage("message18.png"),
-                                     new GreenfootImage("message19.png")
-                                     
+                                     new GreenfootImage("message16.png")
                                      };
     
     public Message(int num)

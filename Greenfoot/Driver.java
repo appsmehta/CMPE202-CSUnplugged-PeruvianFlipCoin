@@ -163,6 +163,7 @@ public class Driver extends Actor
         getWorld().removeObject(arrr.get(0));
         GreenfootImage images =  new GreenfootImage("world1.png");
         getWorld().setBackground(images);
+        
         Player player1 = new Player(0);
         getWorld().addObject(player1, 528, 305);//RVP
         Player player2 = new Player(1);
@@ -348,93 +349,89 @@ public class Driver extends Actor
                 Greenfoot.delay(50);
                 
                 //world.showText("Hey Chris!!", 370, 100);
-                Message message1 = new Message(0);
+                Message message1 = new Message(4);  //hey cris
                 world.addObject(message1, 385, 80);
+                Greenfoot.playSound("r1.wav");
                 Greenfoot.delay(150);
                 world.removeObject(message1);
                 
                 
-                Message message2 = new Message(2);
+                Message message2 = new Message(5);  //hey rooney
                 world.addObject(message2, 210, 80);
+                Greenfoot.playSound("c1.wav");
                 Greenfoot.delay(150);
                 world.removeObject(message2);
                 
-                Message message3 = new Message(3);
+                Message message3 = new Message(6);  //Lets have a game this weekend
                 world.addObject(message3, 385, 80);
+                Greenfoot.playSound("r2.wav");
                 Greenfoot.delay(150);
                 world.removeObject(message3);
                 
-                Message message4 = new Message(4);
+                Message message4 = new Message(7);  //Sure, Come to our homeground
                 world.addObject(message4, 210, 80);
+                Greenfoot.playSound("c2.wav");
                 Greenfoot.delay(150);
                 world.removeObject(message4);
                 
-                Message message5 = new Message(5);
+                Message message5 = new Message(8);  //unfair
                 world.addObject(message5, 385, 80);
+                Greenfoot.playSound("r3.wav");
                 Greenfoot.delay(150);
                 world.removeObject(message5);
                 
-                Message message6 = new Message(6);
-                world.addObject(message6, 210, 80);
+                Message message6 = new Message(9);  //flip coin
+                world.addObject(message6, 385, 80);
                 Greenfoot.delay(200);
                 world.removeObject(message6);
                 
-                Message message7 = new Message(7);
-                world.addObject(message7, 385, 80);
+                Message message7 = new Message(10); //Ok, fairness
+                world.addObject(message7, 210, 80);
+                Greenfoot.playSound("c3.wav");
                 Greenfoot.delay(200);
                 world.removeObject(message7);
                 
-                Message message8 = new Message(8);
-                world.addObject(message8, 210, 80);
+                Message message8 = new Message(11); //It's not just a normal toss, it’s called Peruvian flip coin.
+                world.addObject(message8, 385, 80);
+                Greenfoot.playSound("r4.wav");
                 Greenfoot.delay(200);
                 world.removeObject(message8);
                 
-                Message message9 = new Message(9);
-                world.addObject(message9, 385, 80);
+                
+                Message message9 = new Message(12); //how does it work?
+                world.addObject(message9, 210, 80);
+                Greenfoot.playSound("c4.wav");
                 Greenfoot.delay(200);
                 world.removeObject(message9);
                 
-                Message message10 = new Message(10);
-                world.addObject(message10, 210, 80);
+                Message message10 = new Message(13);    //I'll provide a binary input to this circuit. You need to guess its parity.
+                world.addObject(message10, 385, 80);
+                Greenfoot.playSound("r5.wav");
                 Greenfoot.delay(200);
                 world.removeObject(message10);
-                
-                Message message11 = new Message(11);
-                world.addObject(message11, 385, 80);
-                Greenfoot.delay(200);
-                world.removeObject(message11);
-                
-                
-                Message message12 = new Message(12);
-                world.addObject(message12, 210, 80);
-                Greenfoot.delay(200);
-                world.removeObject(message12);
-                
-                Message message13 = new Message(13);
-                world.addObject(message13, 385, 80);
                 
                 Circuit circuit = new Circuit();
                 world.addObject(circuit, 510, 500);
                 Greenfoot.delay(200);
-                world.removeObject(message13);
+                world.removeObject(message10);
                 world.removeObject(circuit);
                 
-                
-                Message message14 = new Message(14);
-                world.addObject(message14, 385, 80);
+                Message message11 = new Message(14);    //If you guess it correct, you win. 
+                world.addObject(message11, 385, 80);
+                Greenfoot.playSound("r6.wav");
                 Greenfoot.delay(200);
-                world.removeObject(message14);
+                world.removeObject(message11);
                 
-                Message message15 = new Message(15);
-                world.addObject(message15, 385, 80);
-                Greenfoot.delay(200);
-                world.removeObject(message15);
                 
-                Message message16 = new Message(16);
-                world.addObject(message16, 210, 80);
+                Message message12 = new Message(15);    //You can verify the result from your end to check fairness.
+                world.addObject(message12, 385, 80);
+                Greenfoot.playSound("r7.wav");
                 Greenfoot.delay(200);
-                world.removeObject(message16);
-             
+                world.removeObject(message12);
+                
+                Message message13 = new Message(16);    //Ok, I am in.
+                world.addObject(message13, 210, 80);
+                Greenfoot.playSound("c5.wav");
                 Greenfoot.delay(50);
     }
     
