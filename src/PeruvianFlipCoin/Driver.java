@@ -33,7 +33,7 @@ public class Driver
     private EncodedInputState encodedInputState;
     private VerifiedOutputState verifiedOutputState;
 
-    private GameState gamestate;
+    private GameState gameState;
     private String output = "";
     private ArrayList<PeruvianObserver> observers = new ArrayList<PeruvianObserver>();
 
@@ -62,7 +62,7 @@ public class Driver
         encodedInputState = new EncodedInputState(this);
         verifiedOutputState = new VerifiedOutputState(this);
 
-        gamestate = waitingState;
+        gameState = waitingState;
     }
     
     public String encodedInput(String input)
@@ -98,8 +98,8 @@ public class Driver
                outputBits[i]='0';
                  i++;
               }
-
-            gamestate = encodedInputState;
+              System.out.println("hksdbdfhgcsih"+gameState.getClass().getName());
+            gameState.encodeInput();
             notifyObservers();
             String outputResult = new String(outputBits);
             return outputResult;
@@ -120,7 +120,7 @@ public class Driver
                 System.out.println("Captain A won");
             }
             
-            gamestate = verifiedOutputState;
+            gameState.guessParity();
             notifyObservers();
             output = output + ",VerifiedOutputState";
             return output;
@@ -139,7 +139,8 @@ public class Driver
 
         gameKey = minRange + gen.nextInt(8999);
 
-        setState(kickOffState);
+        gameState.createGame();
+        //setState(kickOffState);
         notifyObservers();
 
         return (Integer.toString(gameKey));
@@ -151,7 +152,8 @@ public class Driver
 
         if((Integer.toString(gameKey)).equals(providedKey))
         {
-            setState(noInputState);
+            gameState.startGame();
+            //setState(noInputState);
             notifyObservers();
             return "true";
             
@@ -195,7 +197,7 @@ public class Driver
 
     public void resetGame(){
 
-
+        //gameState.setState();
         setState(waitingState);
         notifyObservers();
         gameKey = 1000;
@@ -204,17 +206,17 @@ public class Driver
     public void setState(GameState state){
 
 
-        this.gamestate = state;
+        this.gameState = state;
 
     }
 
     public String getState(){
 
-       return this.gamestate.getClass().getName();
+       return this.gameState.getClass().getName();
     }
 
     public GameState getStateIntance(){
-        return this.gamestate;
+        return this.gameState;
     }
 
     public GameState getKickOffState()
