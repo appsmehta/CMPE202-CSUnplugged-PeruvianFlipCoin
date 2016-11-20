@@ -8,6 +8,9 @@ public class KickOffState extends GameState
         super(gameDriver);
     }
 
+    public void setState(){
+        gameDriver.setState(gameDriver.getNoInputState());
+    }
     
        
     public String toString()

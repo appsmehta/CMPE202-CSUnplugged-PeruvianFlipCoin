@@ -9,7 +9,9 @@ public class WaitingState extends GameState
         super(gameDriver);
     }
 
-   
+    public void setState(){
+        gameDriver.setState(gameDriver.getKickOffState());
+    }   
     
     public String toString()
     {

@@ -166,6 +166,36 @@ public class Driver
 
        return this.gamestate.getClass().getName();
     }
+
+    public GameState getStateIntance(){
+        return this.gamestate;
+    }
+
+    public GameState getKickOffState()
+    {
+        return kickOffState;
+    }
+
+    public GameState getNoInputState()
+    {
+        return noInputState;
+    }
+
+    public GameState getVerifiedOutputState()
+    {
+        return verifiedOutputState;
+    }
+
+    public GameState getWaitingState()
+    {
+        return waitingState;
+    }
+
+    public GameState getEncodedInputState()
+    {
+        return encodedInputState;
+    }
+
 /*
     public void act() 
     {
