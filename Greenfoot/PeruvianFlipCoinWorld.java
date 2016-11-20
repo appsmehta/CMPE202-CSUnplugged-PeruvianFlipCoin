@@ -9,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class PeruvianFlipCoinWorld extends World
 {
 
-    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -17,18 +16,19 @@ public class PeruvianFlipCoinWorld extends World
     public PeruvianFlipCoinWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(1024, 768, 1); 
         GreenfootImage images =  new GreenfootImage("WelcomeScreen.png");
         setBackground(images);
         gameButtons();
+        prepare();
     }
 
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
-    
-        private void gameButtons()
+
+    private void gameButtons()
     {
         Driver driver = new Driver();
         addObject(driver,594,8);
@@ -39,6 +39,12 @@ public class PeruvianFlipCoinWorld extends World
         addObject(mobile2,500,279);
         mobile2.setLocation(500,279);
     }
-    
 
+    /**
+     * Prepare the world for the start of the program.
+     * That is: create the initial objects and add them to the world.
+     */
+    private void prepare()
+    {
+    }
 }
