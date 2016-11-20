@@ -1,6 +1,7 @@
 //import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 package pfc;
 import java.util.Random;
+import java.util.*;
 
 /**
  * Write a description of class Driver here.
@@ -34,6 +35,7 @@ public class Driver
 
     private GameState gamestate;
     private String output = "";
+    private ArrayList<PeruvianObserver> observers = new ArrayList<PeruvianObserver>();
 
     public static Driver getInstance()
     {
@@ -88,6 +90,7 @@ public class Driver
             inputParity = findParity();
             
             gamestate = encodedInputState;
+            notifyObservers();
             return new String("EncodedInputState");
     }
 
@@ -107,6 +110,7 @@ public class Driver
             }
             
             gamestate = verifiedOutputState;
+            notifyObservers();
             output = output + ",VerifiedOutputState";
             return output;
     }
@@ -125,6 +129,7 @@ public class Driver
         gameKey = minRange + gen.nextInt(8999);
 
         setState(kickOffState);
+        notifyObservers();
 
         return (Integer.toString(gameKey));
 
@@ -136,6 +141,7 @@ public class Driver
         if((Integer.toString(gameKey)).equals(providedKey))
         {
             setState(noInputState);
+            notifyObservers();
             return "true";
             
 
@@ -180,6 +186,7 @@ public class Driver
 
 
         setState(waitingState);
+        notifyObservers();
         gameKey = 1000;
     }
 
@@ -222,6 +229,18 @@ public class Driver
     public GameState getEncodedInputState()
     {
         return encodedInputState;
+    }
+
+    public void attach (PeruvianObserver p){
+
+        observers.add(p);
+    }
+
+    public void notifyObservers() {
+        for (PeruvianObserver obj  : observers)
+        {
+            obj.update();
+        }
     }
 
 /*
