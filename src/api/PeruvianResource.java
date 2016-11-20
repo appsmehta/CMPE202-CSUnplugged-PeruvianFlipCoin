@@ -9,6 +9,8 @@ import pfc.Driver ;
 public class PeruvianResource extends ServerResource
 {
 	Driver driver = Driver.getInstance();
+	ObserverClient client = new ObserverClient();
+
 
 	@Post
 	public Representation EncodeInputs(JsonRepresentation input)
