@@ -27,7 +27,7 @@ public class CaptainB extends Player
         String input="";
         boolean[] boolinput = new boolean[6];
                 
-        input = Greenfoot.ask("Enter 6 binary bits to be encoded:");
+        input = Greenfoot.ask("Enter 6 digit of binary bits to be encoded:");
         
         System.out.println(input);
         char [] inputbits = input.toCharArray();
