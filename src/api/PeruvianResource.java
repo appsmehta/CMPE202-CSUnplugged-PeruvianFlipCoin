@@ -73,7 +73,6 @@ public class PeruvianResource extends ServerResource
 		}
 
 
-
         if(inputFunction.equals("GuessParity"))
         {
        		int encodedInputParity = Integer.parseInt(json.getString("inputParity"));
@@ -94,6 +93,18 @@ public class PeruvianResource extends ServerResource
         	return new JsonRepresentation ( response ) ;
 
         }
+
+
+        if(inputFunction.equals("GetSummary"))
+		{
+			String summary = driver.getSummary();
+
+			JSONObject response = new JSONObject() ;
+        	//String state = machine.getStateString() ;
+        	response.put( "result", summary ) ;
+
+        	return new JsonRepresentation ( response ) ;
+		}
 
         	JSONObject response = new JSONObject() ;
         	response.put( "result", "ERROR" ) ;

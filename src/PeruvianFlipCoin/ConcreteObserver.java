@@ -20,6 +20,12 @@ public class ConcreteObserver implements PeruvianObserver {
         System.out.println( "Observer: " + this.getClass().getName() + " = " + observerState );
         return observerState;
     }
+
+
+    public String getResult()
+    {
+        return observerState;
+    }
 	 
 }
  
