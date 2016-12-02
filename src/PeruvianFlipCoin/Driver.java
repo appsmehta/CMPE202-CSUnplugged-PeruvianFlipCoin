@@ -210,6 +210,13 @@ public class Driver
 
     }
 
+    public String getSummary()
+    {
+    	CustomResult summary = new CustomResult();
+        String result = summary.CollectResult();
+    	return result;
+    }
+
     public String getState(){
 
        return this.gameState.getClass().getName();
@@ -254,6 +261,27 @@ public class Driver
         {
             obj.update();
         }
+    }
+
+
+    public PeruvianObserver getInputObserver()
+    {
+        return observers.get(0);
+    }
+
+    public PeruvianObserver getEncodingObserver()
+    {
+        return observers.get(1);
+    }
+
+    public PeruvianObserver getParityGuessObserver()
+    {
+        return observers.get(2);
+    }
+
+    public PeruvianObserver getOutputObserver()
+    {
+        return observers.get(3);
     }
 
 /*
