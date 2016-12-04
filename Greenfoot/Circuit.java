@@ -19,6 +19,13 @@ public class Circuit extends Actor
         // Add your action code here.
     }
     
+    public Circuit()
+    {
+        GreenfootImage circuit = getImage();
+        circuit.scale(75, 75);
+        setImage(circuit);
+    }
+    
     public String endcodeBits(String inputString){
         //logic to encode the String
         return "sampleString";

@@ -339,7 +339,7 @@ public class Driver extends Actor
                 world.addObject(mobile2, 526, 324);
                 Greenfoot.delay(20);
                 //world.showText("Hey Rooney!!", 225, 100);
-                Greenfoot.delay(50);
+               // Greenfoot.delay(50);
                 
                 //world.showText("Hey Chris!!", 370, 100);
                 
@@ -370,24 +370,24 @@ public class Driver extends Actor
                 Message message5 = new Message(8);//unfair
                 world.addObject(message5, 597, 251);
                 Greenfoot.playSound("r3.wav");
-                Greenfoot.delay(200);
+                Greenfoot.delay(250);
                 world.removeObject(message5);
                 
                 Message message6 = new Message(9); //flip coin
                 world.addObject(message6, 597, 251);
-                Greenfoot.delay(200);
+                Greenfoot.delay(300);
                 world.removeObject(message6);
                 
                 Message message7 = new Message(10);//Ok, fairness
                 world.addObject(message7, 422, 251);
                 Greenfoot.playSound("c3.wav");
-                Greenfoot.delay(200);
+                Greenfoot.delay(300);
                 world.removeObject(message7);
                 
                 Message message8 = new Message(11);//It's not just a normal toss, it’s called Peruvian flip coin.
                 world.addObject(message8, 597, 251);
                 Greenfoot.playSound("r4.wav");
-                Greenfoot.delay(200);
+                Greenfoot.delay(250);
                 world.removeObject(message8);
                 
                 
@@ -419,7 +419,7 @@ public class Driver extends Actor
                 Message message12 = new Message(15);//You can verify the result from your end to check fairness.
                 world.addObject(message12, 597, 251);
                 Greenfoot.playSound("r7.wav");
-                Greenfoot.delay(200);
+                Greenfoot.delay(250);
                 world.removeObject(message12);
                 
                 Message message13 = new Message(16); //Ok, I am in.
