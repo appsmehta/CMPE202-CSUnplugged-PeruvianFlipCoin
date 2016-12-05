@@ -20,13 +20,15 @@ public class Driver extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    private final String service_url = "http://peruvian-3c74081a.d9c9ced2.svc.dockerapp.io:80/Peru";
+    //private final String service_url = "http://peruvian-3c74081a.d9c9ced2.svc.dockerapp.io:80/Peru";
+    private final String service_url = "http://peruvian1-9b67ef15.d48669a2.svc.dockerapp.io/Peru";
     
     CaptainA team1;
     CaptainB team2;
     //GameState state = new GameState();
     String state;
     int animationFlag = 0;
+    int summaryFlag = 1;
     Circuit c = new Circuit();
     ClientResource peruvianClient;
     boolean[] boolEncoded = new boolean[6];
@@ -116,6 +118,10 @@ public class Driver extends Actor
         
         if(state.equals("pfc.EncodedInputState") && playerNumber==2){
             getParity();
+        }
+        
+        if(state.equals("pfc.VerifiedOutputState") && summaryFlag == 1){
+            getSummary();
         }
         
         
@@ -262,7 +268,9 @@ public class Driver extends Actor
             getInputString();
         }
        
-       JSONObject sendRequest = new JSONObject();
+       else
+       {
+           JSONObject sendRequest = new JSONObject();
             sendRequest.put("function", "EncodeBits");
             sendRequest.put("inputBits", input);
             //response.put( "result", verified);
@@ -282,7 +290,7 @@ public class Driver extends Actor
             {
                 System.out.println(e);
             }
-        
+        }
     }
     
     
@@ -326,6 +334,30 @@ public class Driver extends Actor
                 JFrame frame1 = new JFrame("circuitInput");
                 JOptionPane.showMessageDialog(frame1, ""+result[0]);
             }
+            
+    public void getSummary()
+    {
+            System.out.println("VerifiedOutputState");
+            JSONObject sendRequest = new JSONObject();
+            sendRequest.put("function", "GetSummary");
+            Representation keyResult = peruvianClient.post(new JsonRepresentation(sendRequest));//, MediaType.APPLICATION_JSON);
+            
+            try
+            {
+                JSONObject keyJson = new JSONObject(keyResult.getText());
+                String summary = keyJson.getString("result");
+                System.out.println("Summary "+summary);
+                
+                JFrame frame = new JFrame("circuitInput");
+                JOptionPane.showMessageDialog(frame, "Game Summary "+summary);
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+            }
+            
+            summaryFlag = 0;
+    }
     
     public void initialAnimation()
     {
