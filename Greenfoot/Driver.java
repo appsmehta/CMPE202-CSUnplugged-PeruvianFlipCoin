@@ -97,7 +97,10 @@ public class Driver extends Actor
         {
             if(Greenfoot.mouseClicked(arrr.get(0)))
             {
-                joinGame();
+                if(playerNumber != 1)
+                {
+                    joinGame();
+                }
             }
         }
         
