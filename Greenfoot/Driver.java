@@ -406,10 +406,12 @@ public class Driver extends Actor
                 
                 JFrame frame1 = new JFrame("result");
                 JOptionPane.showMessageDialog(frame1, finalResult);
-                    
-                    
+                
+                String[] result = summary.split(",", 5);
+                System.out.println("splitted summary"+result[0]);
+                
                 JFrame frame = new JFrame("circuitInput");
-                JOptionPane.showMessageDialog(frame, "Game Summary "+summary);
+                JOptionPane.showMessageDialog(frame, "Game Summary: \n"+result[0]+"\n"+result[1]+"\n"+result[2]+"\n"+result[3]);
             }
             catch(Exception e)
             {
