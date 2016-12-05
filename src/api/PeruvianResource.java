@@ -94,6 +94,15 @@ public class PeruvianResource extends ServerResource
 
         }
 
+        if(inputFunction.equals("GetEncodedBits"))
+        {
+        	String output = driver.fetchEncodedBits();
+			JSONObject response = new JSONObject() ;
+        	response.put( "result", output ) ;
+
+        	return new JsonRepresentation ( response ) ;
+        }
+
 
         if(inputFunction.equals("GetSummary"))
 		{

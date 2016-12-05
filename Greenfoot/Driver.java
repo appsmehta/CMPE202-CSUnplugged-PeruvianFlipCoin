@@ -21,7 +21,8 @@ public class Driver extends Actor
      */
     
     //private final String service_url = "http://peruvian-3c74081a.d9c9ced2.svc.dockerapp.io:80/Peru";
-    private final String service_url = "http://peruvian1-9b67ef15.d48669a2.svc.dockerapp.io/Peru";
+    private final String service_url = "http://peruvian3-0cfeb908.fd226c2f.svc.dockerapp.io:80/Peru";
+    
     
     CaptainA team1;
     CaptainB team2;
@@ -298,34 +299,65 @@ public class Driver extends Actor
     public void getParity()
     {
       // String input = Greenfoot.ask("Please Guess the Parity");
+      
+      
+      String encodedBits = new String();
+      JSONObject sendRequest = new JSONObject();
+      sendRequest.put("function", "GetEncodedBits");
+      //sendRequest.put("inputBits", input);
+            //response.put( "result", verified);
+            //response.put("state",gameState);
+            //JsonRepresentation sendRequest = new JsonRepresentation();
+           
+      Representation keyResult = peruvianClient.post(new JsonRepresentation(sendRequest));//, MediaType.APPLICATION_JSON);
+      try
+        {
+         JSONObject keyJson = new JSONObject(keyResult.getText());
+         encodedBits = keyJson.getString("result");
+         //state = keyJson.getString("state");
+         System.out.println("EncodedBits:"+encodedBits);
+         System.out.println("Game State"+state);
+        }
+        catch(Exception e)
+        {
+           System.out.println(e);
+        }
+      
+      
+      
+      
+      
       JFrame frame = new JFrame("circuitInput");
-      String input = JOptionPane.showInputDialog(frame, "Enter Parity:");
+      String input = JOptionPane.showInputDialog(frame, "The Encoded output from other player is: "+encodedBits+".\nGuess the input bits Parity:");
       
       if(input == null || input.isEmpty() || !input.matches("[0-1]*") || input.length() != 1)
         {
             input = "";
             JFrame frame1 = new JFrame("circuitInput");
-            JOptionPane.showMessageDialog(frame1,"Invalid parity, please reenter","Warning",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(frame1,"Invalid input, please only enter 0 or 1","Warning",JOptionPane.WARNING_MESSAGE);
             getParity();
         }
+        else
+        {
        
-       JSONObject sendRequest = new JSONObject();
-            sendRequest.put("function", "GuessParity");
-            sendRequest.put("inputParity", input);
-            Representation keyResult = peruvianClient.post(new JsonRepresentation(sendRequest));//, MediaType.APPLICATION_JSON);
+       JSONObject sendRequest2 = new JSONObject();
+            sendRequest2.put("function", "GuessParity");
+            sendRequest2.put("inputParity", input);
+            Representation keyResult2 = peruvianClient.post(new JsonRepresentation(sendRequest2));//, MediaType.APPLICATION_JSON);
             try
             {
-                JSONObject keyJson = new JSONObject(keyResult.getText());
+                JSONObject keyJson = new JSONObject(keyResult2.getText());
                 String verifiedKey = keyJson.getString("result");
                 //state = keyJson.getString("state");
                 System.out.println("VerifiedKey:"+verifiedKey);
-                showResult(verifiedKey); 
+                //showResult(verifiedKey); 
                 System.out.println("Game State"+state);
             }
             catch(Exception e)
             {
                 System.out.println(e);
             }
+        }
     }
     public void showResult(String verifiedKey)
             {
@@ -341,13 +373,41 @@ public class Driver extends Actor
             JSONObject sendRequest = new JSONObject();
             sendRequest.put("function", "GetSummary");
             Representation keyResult = peruvianClient.post(new JsonRepresentation(sendRequest));//, MediaType.APPLICATION_JSON);
-            
+            String finalResult = new String();
             try
             {
                 JSONObject keyJson = new JSONObject(keyResult.getText());
                 String summary = keyJson.getString("result");
                 System.out.println("Summary "+summary);
                 
+                
+                //player 1 = captain a
+                
+                if(summary.charAt(137) == 'A')
+                {
+                    if(playerNumber == 1)
+                    {
+                        finalResult = "YOU WON";
+                    }
+                    else
+                    {
+                        finalResult = "YOU LOSE";
+                    }
+                }
+                else
+                {   if(playerNumber == 1)
+                    {
+                        finalResult = "YOU LOSE";
+                    }
+                    else
+                    {
+                        finalResult = "YOU WIN";
+                    }}
+                
+                JFrame frame1 = new JFrame("result");
+                JOptionPane.showMessageDialog(frame1, finalResult);
+                    
+                    
                 JFrame frame = new JFrame("circuitInput");
                 JOptionPane.showMessageDialog(frame, "Game Summary "+summary);
             }

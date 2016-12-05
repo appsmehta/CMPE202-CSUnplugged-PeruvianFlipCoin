@@ -31,7 +31,7 @@ public class PeruvianFlipCoinWorld extends World
     private void gameButtons()
     {
         Driver driver = new Driver();
-        addObject(driver,594,8);
+        addObject(driver,4,5);
         Mobile mobile = new Mobile(2);
         addObject(mobile,871,480);
         mobile.setLocation(871,480);
@@ -46,5 +46,7 @@ public class PeruvianFlipCoinWorld extends World
      */
     private void prepare()
     {
+        //Driver driver = new Driver();
+        //addObject(driver,4,5);
     }
 }

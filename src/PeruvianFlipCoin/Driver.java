@@ -26,6 +26,7 @@ public class Driver
     boolean[] boolInputCaptainA = new boolean[6];
     int inputParity, guessedParity,gameKey;
     String givenInput,generatedOutput;
+    String outputResult;
    // private NoPlayerState noPlayerState;
     private WaitingState waitingState;
     private KickOffState kickOffState;
@@ -101,7 +102,7 @@ public class Driver
               System.out.println("hksdbdfhgcsih"+gameState.getClass().getName());
             gameState.encodeInput();
             notifyObservers();
-            String outputResult = new String(outputBits);
+            outputResult = new String(outputBits);
             return outputResult;
     }
 
@@ -282,6 +283,11 @@ public class Driver
     public PeruvianObserver getOutputObserver()
     {
         return observers.get(3);
+    }
+
+    public String fetchEncodedBits()
+    {
+        return outputResult;
     }
 
 /*
