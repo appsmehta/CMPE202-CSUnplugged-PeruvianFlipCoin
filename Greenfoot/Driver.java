@@ -21,7 +21,7 @@ public class Driver extends Actor
      */
     
     //private final String service_url = "http://peruvian-3c74081a.d9c9ced2.svc.dockerapp.io:80/Peru";
-    private final String service_url = "http://peruvian3-0cfeb908.fd226c2f.svc.dockerapp.io:80/Peru";
+    private final String service_url = "http://peruvian3-0cfeb908-1.8745656e.cont.dockerapp.io/Peru";
     
     
     CaptainA team1;
@@ -390,21 +390,21 @@ public class Driver extends Actor
                 {
                     if(playerNumber == 1)
                     {
-                        finalResult = "YOU WON";
+                        finalResult = "YOU WON!";
                     }
                     else
                     {
-                        finalResult = "YOU LOSE";
+                        finalResult = "YOU LOSE!";
                     }
                 }
                 else
                 {   if(playerNumber == 1)
                     {
-                        finalResult = "YOU LOSE";
+                        finalResult = "YOU LOSE!";
                     }
                     else
                     {
-                        finalResult = "YOU WIN";
+                        finalResult = "YOU WIN!";
                     }}
                 
                 JFrame frame1 = new JFrame("result");
@@ -415,6 +415,36 @@ public class Driver extends Actor
                 
                 JFrame frame = new JFrame("circuitInput");
                 JOptionPane.showMessageDialog(frame, "Game Summary: \n"+result[0]+"\n"+result[1]+"\n"+result[2]+"\n"+result[3]);
+                
+                
+                
+                
+                
+                JSONObject sendRequest2 = new JSONObject();
+                sendRequest2.put("function", "ResetGame");
+                //response.put( "result", verified);
+                //response.put("state",gameState);
+                //JsonRepresentation sendRequest = new JsonRepresentation();
+                //playerNumber = 1;
+                Representation keyResult3 = peruvianClient.post(new JsonRepresentation(sendRequest2));//, MediaType.APPLICATION_JSON);
+                try
+                {
+                    JSONObject keyJson3 = new JSONObject(keyResult3.getText());
+                    //String gameKey = keyJson.getString("result");
+                    state = keyJson3.getString("state");
+                    
+                }
+                catch(Exception e)
+                {
+                    System.out.println(e);
+                }
+                
+                
+                
+                
+                
+                
+                
             }
             catch(Exception e)
             {
@@ -527,5 +557,6 @@ public class Driver extends Actor
              
                 Greenfoot.delay(50);
     }
+    
     
 }
